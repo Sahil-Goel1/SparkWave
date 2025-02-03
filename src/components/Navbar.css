@@ -1,0 +1,58 @@
+#main_search{
+    position: relative;
+    margin-top:14px;
+    margin-right:200px;
+    width:65px;
+    height:50px;
+}
+
+#search_bar{
+    position: relative;
+    margin-top:14px;
+    width:700px;
+    margin-left:50px;
+    /* width: auto; */
+    margin-right: 5px;
+    padding-left: 30px; /* Adjust padding to make room for the icon */
+    background-image: url('./images/magnifying-glass.jpg'); /* Path to your image */
+    background-position: 5px center; /* Position the image */
+    background-repeat: no-repeat;
+    background-size: 20px 20px; /* Size of the image */
+    height:50px;
+    
+}
+
+#cart_button{
+    width:100px;
+    height:60px;
+    margin-right: 10px; /* Reduced margin to move it closer to the form */
+    padding-left: 60px;
+    position:relative;
+    margin-top:-5px;
+    background-image:url('./images/shopping cart.jpg');
+    background-repeat:no-repeat;
+    background-position: 5px center;
+    background-size: 40px 40px;
+} 
+
+#profile img{
+    width: 130px;
+  height: 80px;
+  border-radius: 10px;
+  position:relative;
+  margin-left:-5px;
+  margin-top:-10px
+} 
+
+.navbar{
+    background-color: #9b59b6;
+    height:90px;
+    padding-top:15px;
+}
+
+.blinking{
+    background-color: green;
+    color:white;
+}
+
+

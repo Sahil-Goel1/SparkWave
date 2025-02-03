@@ -1,0 +1,51 @@
+.first_div{
+    width:400px;
+    height:50px;
+    background-color:purple;
+    font-size:20px;
+    color:white;
+    padding-top:10px;
+    padding-left:20px;
+    border-radius:10px;
+}
+
+.second_div{
+    background-color:purple;
+    color:white;
+    padding-top:10px;
+    padding-left:20px;
+    border-radius:10px;
+    width:400px;
+}
+
+.third_div{
+    background-color:purple;
+    color:white;
+    padding-top:10px;
+    padding-left:20px;
+    border-radius:10px;
+    width:400px;
+    height:150px;
+    position:relative;
+    margin-left:1120px;
+}
+
+.fourth_div{
+    background-color:purple;
+    color:white;
+    padding-top:10px;
+    padding-left:20px;
+    border-radius:10px;
+    width:720px;
+    height:50px;  
+}
+
+.fifth_div{
+    background-color:purple;
+    color:white;
+    padding-top:10px;
+    padding-left:20px;
+    border-radius:10px;
+    width:720px;
+    height:200px;  
+}

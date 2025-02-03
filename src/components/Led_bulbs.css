@@ -1,0 +1,101 @@
+.led_button{
+    border-radius:30px;
+    width:100px;
+    height:30px;
+    background-color: rgb(254, 254, 0);
+    position:relative;
+    margin-top:16px;
+    
+}
+
+.led_button:hover{
+    background-color:rgb(237, 237, 9);
+}
+
+.button_container {
+    display: flex;
+}
+
+.minus_button{
+    width: 40px;
+    height: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    margin-top:-7px;
+    background-color:rgb(34, 87, 248);
+    color:white;
+}
+
+.plus_button{
+    width: 40px;
+    height: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    position:relative;
+    margin-left:10px;
+    margin-top:-7px;
+    background-color: rgb(34, 87, 248);
+    color:white
+}
+
+#led_bulb_main_page{
+    height:100%;
+}
+
+.led_text_div{
+    border-width: 1px ;
+    border-style:solid;
+    border-color:darkgray;
+    height:250px;
+    width:230px;
+    background-color:rgb(244, 239, 239) ;
+    border-radius:5px; 
+    margin-top:50px;
+}
+
+.led_bulb_image{
+    height:250px;
+    width:220px;
+    margin:50px;
+    border: 2px solid darkgray; 
+    border-radius: 5px; 
+    position:relative;
+}
+
+.led_bulb_image:hover{
+    transform:scale(1.1);
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.sub_div1{
+    position:relative;
+    margin-top:-35px;
+    margin-left:-20px;
+}
+
+.quantity_textarea {
+    width: 100px;
+    text-align: center;
+    font-size: 1.2rem;
+    resize: none;
+    position:relative;
+    margin-left:5px;
+    margin-top:-5px;
+    border-radius:10px;
+
+}

@@ -1,0 +1,143 @@
+.Sign_In_Box {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form1 {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.Sign_In_Box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #5b9bd5;
+    box-shadow: 0 0 5px rgba(91, 155, 213, 0.5);
+    outline: none;
+}
+
+#submission {
+    background-color: #5b9bd5;
+    color: #fff;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position:relative;
+    margin-left:45px
+}
+
+#submission:hover {
+    background-color: #4a8ac1;
+}
+
+#mail, #pass {
+    margin-bottom: 5px;
+}
+
+.sign_in_email{
+    width:200px;
+}
+
+.sign_in_pass{
+    width:200px;
+}
+
+.pass_forget{
+    position:relative;
+    margin-left:85px;
+    margin-top:35px;
+    color:blue;
+}
+
+#otp1 {
+    width: 70px; /* Width of each input */
+    height: 50px; /* Height of each input */
+    text-align: center; /* Center the text */
+    font-size: 24px; /* Font size */
+    margin: 0 5px; /* Space between inputs */
+    border: 1px solid #ced4da; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+#otp2 {
+    width: 70px; /* Width of each input */
+    height: 50px; /* Height of each input */
+    text-align: center; /* Center the text */
+    font-size: 24px; /* Font size */
+    margin: 0 5px; /* Space between inputs */
+    border: 1px solid #ced4da; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#otp3 {
+    width: 70px; /* Width of each input */
+    height: 50px; /* Height of each input */
+    text-align: center; /* Center the text */
+    font-size: 24px; /* Font size */
+    margin: 0 5px; /* Space between inputs */
+    border: 1px solid #ced4da; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#otp4 {
+    width: 70px; /* Width of each input */
+    height: 50px; /* Height of each input */
+    text-align: center; /* Center the text */
+    font-size: 24px; /* Font size */
+    margin: 0 5px; /* Space between inputs */
+    border: 1px solid #ced4da; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#otp5 {
+    width: 70px; /* Width of each input */
+    height: 50px; /* Height of each input */
+    text-align: center; /* Center the text */
+    font-size: 24px; /* Font size */
+    margin: 0 5px; /* Space between inputs */
+    border: 1px solid #ced4da; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#otp6 {
+    width: 70px; /* Width of each input */
+    height: 50px; /* Height of each input */
+    text-align: center; /* Center the text */
+    font-size: 24px; /* Font size */
+    margin: 0 5px; /* Space between inputs */
+    border: 1px solid #ced4da; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+}
+.otp-container1 {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the inputs */
+    margin-top: 20px; /* Space above the inputs */
+}

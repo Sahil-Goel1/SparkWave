@@ -1,0 +1,35 @@
+.new_elec_heading{
+    text-align:center;
+    font-size:55px;
+}
+
+.new_elec_submit_button{
+     text-align:center;
+     position:relative;
+     margin-left:700px;
+     margin-bottom:30px;
+     width:300px;
+}
+
+#upper_div{
+    background-color: cyan;
+}
+
+.new_elec_compliment{
+     background-color: #FFD700;
+     position:relative;
+     margin-top:-15px;
+}
+.new_elec_other_body{
+    background: linear-gradient(to right, #ff7ec6, #8a2be2);
+    position:relative;
+    margin-top:-20px;
+}
+
+.form-control{
+    width:570px;
+}
+
+#state_select{
+    width:570px;
+}

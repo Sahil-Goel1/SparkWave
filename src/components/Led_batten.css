@@ -1,0 +1,110 @@
+.led_batten_button{
+    border-radius:30px;
+    width:200px;
+    height:50px;
+    background-color: rgb(254, 254, 0);
+    position:relative;
+    margin-top:16px;
+    margin-left:100px;
+    
+}
+
+.led_batten_button:hover{
+    background-color:rgb(237, 237, 9);
+}
+
+.button_container {
+    display: flex;
+}
+
+.batten_minus_button{
+    width: 40px;
+    height: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    margin-top:-7px;
+    background-color:rgb(34, 87, 248);
+    color:white;
+    position:relative;
+    margin-left:50px;
+}
+
+.batten_plus_button{
+    width: 40px;
+    height: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    position:relative;
+    margin-top:-7px;
+    background-color: rgb(34, 87, 248);
+    color:white
+}
+
+#led_batten_main_page{
+    height:100%;
+}
+
+.led_batten_text_div{
+    border-width: 1px ;
+    border-style:solid;
+    border-color:darkgray;
+    height:260px;
+    width:1200px;
+    background-color:rgb(244, 239, 239) ;
+    border-radius:8px; 
+    margin-top:50px;
+}
+
+.led_batten_image{
+    height:260px;
+    width:270px;
+    margin:50px;
+    border: 2px solid darkgray; 
+    border-radius: 8px; 
+    position:relative;
+}
+
+.led_batten_image:hover{
+    transform:scale(1.1);
+}
+
+.sub_div2 {
+    position:relative;
+    margin-left: -20px; /* Adjust the left margin as needed */
+    margin-top: -40px; /* Reduce this value to decrease the gap between elements vertically */
+}
+
+.message_heading{
+    position:relative;
+    margin-left:20px;
+}
+
+.message {
+    position: sticky;
+    top: 90px; /* This ensures the alert appears right below the navbar, adjust to fit navbar height */
+    z-index: 999; /* Keeps the alert on top of other elements */
+}
+
+.quantity_textarea1 {
+    width: 140px;
+    text-align: center;
+    font-size: 1.2rem;
+    resize: none;
+    position:relative;
+    margin-left:5px;
+    margin-top:-5px;
+    border-radius:15px;
+
+}

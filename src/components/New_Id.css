@@ -1,0 +1,122 @@
+#id-main-box {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#form-1 {
+    background-color: #ffffff; 
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 3px solid #ff6f61; 
+}
+
+/* Heading style */
+#big-line {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ff6f61; 
+}
+
+#id1 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+}
+
+#id2 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+}
+
+#id3 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+}
+
+#Email1{
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ff6f61; 
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Password1{
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ff6f61; 
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Textarea1{
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 2px solid #ff6f61; 
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#Email1:focus {
+    border-color: #fdca40; 
+    outline: none;
+    box-shadow: 0 0 10px rgba(253, 202, 64, 0.5);
+}
+
+#Password1:focus {
+    border-color: #fdca40; 
+    outline: none;
+    box-shadow: 0 0 10px rgba(253, 202, 64, 0.5);
+}
+
+#Textarea1:focus {
+    border-color: #fdca40; 
+    outline: none;
+    box-shadow: 0 0 10px rgba(253, 202, 64, 0.5);
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+#small {
+    background-color: #ff6f61;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#small:hover {
+    background-color: #fdca40; 
+    transform: scale(1.05); 
+}
+
+#secret {
+    font-size: 0.875rem;
+    color: #333;
+    margin-top: 1rem;
+}

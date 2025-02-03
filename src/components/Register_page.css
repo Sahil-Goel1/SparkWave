@@ -1,0 +1,159 @@
+#main-box{
+    height: 100vh;
+    background-image:url("./images/milkyway.jpg");
+    background-size: cover;
+
+}
+
+#btn1{
+    position:relative;
+    margin-left:350px;
+   margin-bottom:10px;
+   height:50px;
+   width:350px;
+   
+}
+ 
+#btn1:hover{
+    transform: scale(1.05);
+}
+
+#btn2{
+    position:relative;
+    margin-left:800px;
+    height:50px;
+   width:350px;
+   margin-top:-100px;
+    
+}
+
+#btn2:hover{
+    transform: scale(1.05);
+}
+
+.main_heading{
+    color:cyan;
+    font-size:150px;
+    padding-top:200px;
+    font-family:'Roboto', 'Helvetica', 'Arial', sans-serif;
+    position:relative;
+    margin-left:220px;
+}
+
+.small_heading{
+    color:magenta;
+    font-family: 'Roboto', sans-serif;
+    position:relative;
+    margin-left:240px;
+}
+
+.reg_sub_div{
+    position:relative;
+    
+}
+
+/* Base styles */
+#main-box {
+    height: 100vh;
+    background-image: url("./images/milkyway.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.main_heading {
+    color: cyan;
+    font-size: 150px;
+    padding-top: 200px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.small_heading {
+    color: magenta;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#btn1, #btn2 {
+    height: 50px;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+#btn1:hover, #btn2:hover {
+    transform: scale(1.05);
+}
+
+/* Large Desktop (1200px and above) */
+@media screen and (min-width: 1200px) {
+    #btn1 {
+        margin-left: 350px;
+        margin-bottom: 10px;
+    }
+    
+    #btn2 {
+        margin-left: 800px;
+        margin-top: -100px;
+    }
+}
+
+/* Desktop (992px to 1199px) */
+@media screen and (max-width: 1199px) {
+    .main_heading {
+        font-size: 120px;
+        padding-top: 150px;
+    }
+    
+    #btn1, #btn2 {
+        width: 300px;
+        margin: 20px auto;
+        display: block;
+    }
+    
+    #btn2 {
+        margin-top: 20px;
+    }
+}
+
+/* Tablet (768px to 991px) */
+@media screen and (max-width: 991px) {
+    .main_heading {
+        font-size: 90px;
+        padding-top: 120px;
+    }
+    
+    .small_heading {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Large (576px to 767px) */
+@media screen and (max-width: 767px) {
+    .main_heading {
+        font-size: 80px;
+        padding-top: 100px;
+    }
+    
+    #btn1, #btn2 {
+        width: 250px;
+    }
+}
+
+/* Mobile Small (575px and below) */
+@media screen and (max-width: 575px) {
+    .main_heading {
+        font-size: 60px;
+        padding-top: 80px;
+    }
+    
+    .small_heading {
+        font-size: 16px;
+    }
+    
+    #btn1, #btn2 {
+        width: 200px;
+    }
+}

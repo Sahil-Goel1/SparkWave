@@ -1,0 +1,85 @@
+.mycart_sub_div{
+    position:relative;
+    margin-left:20px;
+    margin-top:-20px;  
+    
+}
+
+.remove_button{
+    position:relative;
+    margin-left:100px;
+    margin-top:-30px;
+}
+
+.purchase_button{
+    position:relative;
+    margin-top:-30px;
+    margin-left:180px;
+}
+
+.my_cart_text_div{
+    border-width: 1px ;
+    border-style:solid;
+    border-color:darkgray;
+    height:260px;
+    width:1300px;
+    border-radius:8px; 
+    margin-top:40px;
+    background-color: #00263E;
+    color: #FFA500;
+}
+
+.removeall_button{
+    position:fixed;
+    margin-left:1020px;
+    width:500px;
+
+}
+
+.placeall_button{
+    position:fixed;
+    width:500px;
+}
+
+.amount_span {
+    position: fixed;
+    bottom: 1px; /* Adjust this value to position it above the buttons */
+    left: 500px; /* Adjust this value as needed */
+    width: 520px;
+    height:40px;
+    background-color: white; /* Add a background color for visibility */
+    padding: 10px; /* Add some padding */
+    border: 1px solid darkgray; /* Optional: Add a border */
+    z-index: 10; 
+    border-radius:10px;
+    background-color:blueviolet;
+    color:white;
+    padding-left:200px;
+}
+
+.monkey_image{
+    height:500px;
+    width:1000px;
+    position:relative;
+    margin-left:250px;
+}
+
+.monkey_text{
+    font-size:150px;
+    position:relative;
+    margin-left:100px;
+    color:white;
+}
+
+.empty_cart{
+    height:100vh;
+    background-color:black;
+}
+
+.my_cart_main_div{
+    background: linear-gradient(135deg, #FFA500, #005F73);
+    height:100vh;
+}
+.cart_product_heading{
+    color:white;
+}
