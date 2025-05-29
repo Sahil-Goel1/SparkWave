@@ -10,7 +10,6 @@ import Elect_page from './components/Electrician_support.js'
 import Jmg from './components/Jmg.jsx'
 import Ceiling_fans from './components/Ceiling_fans.js'
 import Cooler from './components/Cooler.js'
-import Fan_box from './components/Fan_box.js'
 import Geyser from './components/Geyser.js'
 import Heater from './components/Heater.js'
 import Led_batten from './components/Led_batten.js'
@@ -42,7 +41,6 @@ function App() {
       <Route path ="/jmg" element ={<Jmg/>} />
       <Route path ="/Ceiling_fans" element ={<Ceiling_fans/>} />
       <Route path ="/Cooler" element ={<Cooler/>} />
-      <Route path ="/Fan_box" element ={<Fan_box/>} />
       <Route path ="/Geyser" element ={<Geyser/>} />
       <Route path ="/Heater" element ={<Heater/>} />
       <Route path ="/Led_batten" element ={<Led_batten/>} />

@@ -12,7 +12,7 @@ import super_briz_deco from "./images/super_briz_deco.webp";
 import toro from "./images/toro.webp";
 
 import Navbar from './Navbar.js';
-import './Ceiling_fans.css';
+import './Ceilingfans.css';
 
 function Led_batten() {
 
