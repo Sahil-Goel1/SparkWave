@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import crompton_jmg from "./images/changeover.jpg";
 import crompton_grinder from "./images/DD_16way.webp";
 import philips_jmg from "./images/bb.webp"
@@ -9,6 +10,8 @@ import Navbar from './Navbar.js';
 import './Led_batten.css'
 
 function Mcb_box() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { name: '3-Phase ChangeOver Box (Anchor)', img: crompton_jmg, price: 2400, details: "High Grade Fresh Iron Box with Copper Ended Terminals,White color, ", quantity: 1 },
         { name: 'Double door MCB Box(Havells)', img: crompton_grinder, price: 2100, details: "High Grade Fresh Iron Box with Copper Ended Terminals,White color,Soft Pushable button", quantity: 1 },
@@ -71,7 +74,7 @@ function Mcb_box() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({ userEmail,name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -93,7 +96,7 @@ function Mcb_box() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

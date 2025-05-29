@@ -55,4 +55,18 @@
     color:white;
 }
 
+@media screen and (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #9b59b6;
+        padding: 10px;
+        width:100%;
+    }
 
+    #cart_button {
+        margin-top: 10px;
+    }
+
+    #search_bar{
+        margin-left:-10px;
+    }
+}

@@ -22,3 +22,22 @@
 #formFile{
     width:400px;
 }
+
+.image_upload{
+    margin-bottom:50px;
+}
+
+
+@media (max-width: 480px) {
+    #info_page h1 {
+        font-size: 1.1rem;
+    }
+
+    #info_page h3 {
+        font-size: 1rem;
+    }
+
+    #formFile{
+          width:350px;
+    }
+}

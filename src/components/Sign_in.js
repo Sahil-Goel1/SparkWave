@@ -16,10 +16,13 @@ function Sign_in() {
     const [password_page,setpassword_page]=useState(false);
     const [new_password,setnew_password]=useState("");
     const [upper_new_password,setupper_new_password]=useState("");
+    const [loading,setloading]=useState(false);
     
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setloading(true);
+        setMessage("");
 
         try {
             const response = await fetch('http://localhost:5000/signin', {
@@ -36,17 +39,20 @@ function Sign_in() {
                 setMessage('Login successful!');
                 navigateToMain();
             } else {
+                setloading(false);
                 setMessage('Invalid email or password');
             }
         } catch (error) {
             console.error('Error:', error);
+            setloading(false);
             setMessage('An error occurred. Please try again later.');
         }
     };
 
     const handleSubmit2= async (e) =>{
         e.preventDefault();
-
+        setMessage("");
+        setloading(true);
         try {
             const response = await fetch('http://localhost:5000/otp_to_email', {
                 method: 'POST',
@@ -60,13 +66,16 @@ function Sign_in() {
 
             if (response.status === 200) {
                 setMessage('OTP Sent Successfully');
+                setloading(false);
                 setemail_page(false);
                 setotp_page(true);
             } else {
+                setloading(false);
                 setMessage('Email not registered');
             }
         } catch (error) {
             console.error('Error:', error);
+            setloading(false);
             setMessage('An error occurred. Please try again later.');
         }
 
@@ -74,6 +83,8 @@ function Sign_in() {
 
     const handleSubmit3= async (e) =>{
         e.preventDefault();
+        setMessage('');
+        setloading(true);
         const otp = [
             document.getElementById("otp1").value,
             document.getElementById("otp2").value,
@@ -96,13 +107,16 @@ function Sign_in() {
 
             if (response.status === 200) {
                 setMessage('');
+                setloading(false);
                 setotp_page(false);
                 setpassword_page(true);
             } else {
-                setMessage('OTP does not matched');
+                setloading(false);
+                setMessage('OTP does not match');
             }
         } catch (error) {
             console.error('Error:', error);
+            setloading(false);
             setMessage('An error occurred. Please try again later.');
         }
 
@@ -110,8 +124,10 @@ function Sign_in() {
 
     const handleSubmit4= async (e) =>{
         e.preventDefault();
+        setMessage("");
+        setloading(true);
         if(upper_new_password!=new_password)
-        {
+        {   setloading(false);
             setMessage("Passwords in lower and upper blocks does not match")
         }
         else{
@@ -128,13 +144,20 @@ function Sign_in() {
             const result = await response.json();
 
             if (response.status === 200) {
+                setloading(false);
+                setTimeout(() => {
+                    setMessage("")
+                }, 2000);
                 setMessage('New Password has been set up.');
-                navigateToMain();
+                setpassword_page(false);
+                setsubmit_page(true);
             } else {
+                setloading(false);
                 setMessage('New password has not been set up');
             }
         } catch (error) {
             console.error('Error:', error);
+            setloading(false);
             setMessage('An error occurred. Please try again later.');
         }
         }
@@ -142,6 +165,7 @@ function Sign_in() {
     
     function setvariables(){
         setsubmit_page(false);
+        setMessage("")
         setemail_page(true);
     }
 
@@ -157,6 +181,10 @@ function Sign_in() {
         <div className="Sign_In_Box">
             {submit_page && (
             <form id="form1" onSubmit={handleSubmit}>
+                {loading &&(
+                <div className="spinner-border text-primary" style={{position:'relative',marginLeft:'130px'}}role="status">
+                 <span className="visually-hidden">Loading...</span>
+                   </div>)}
                 <p style ={{color:'red'}} >{message}</p>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label" id="mail">Email address</label>
@@ -176,6 +204,10 @@ function Sign_in() {
             {email_page &&(
                 <div>
                 <form id="form1" onSubmit={handleSubmit2}>
+                {loading &&(
+                <div className="spinner-border text-primary" style={{position:'relative',marginLeft:'130px'}}role="status">
+                 <span className="visually-hidden">Loading...</span>
+                   </div>)}
                 <p style ={{color:'red'}} >{message}</p>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label" id="mail">Enter your registered Email address</label>
@@ -190,6 +222,11 @@ function Sign_in() {
             {otp_page &&(
                 <div>
                     <form  onSubmit={handleSubmit3}>
+                    {loading &&(
+                   <div className="spinner-border text-primary" style={{position:'relative',marginLeft:'430px'}}role="status">
+                      <span className="visually-hidden">Loading...</span>
+                       </div>)}   
+                       <p style={{fontSize:'30px',color:'red',position:'relative',marginLeft:'250px'}}>{message}</p>
                     <h1>An OTP will sent to your registered mobile number</h1>
                     <div className="otp-container1">
                     <input type="number" className="otp-input1 form-control" maxLength="1" onInput={(e) => { moveToNext(e.target, 'otp2') }} id="otp1" />
@@ -207,6 +244,10 @@ function Sign_in() {
        {password_page && (
             <form id="form1" onSubmit={handleSubmit4}>
                 <p style ={{color:'red'}} >{message}</p>
+                {loading &&(
+                <div className="spinner-border text-primary" style={{position:'relative',marginLeft:'130px'}}role="status">
+                 <span className="visually-hidden">Loading...</span>
+                   </div>)}
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label" id="pass">New Password</label>
                     <input type="password" className="form-control" id="Password1" required

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import crompton_jmg from "./images/aurora.png";
 import crompton_grinder from "./images/brio.webp";
 import philips_jmg from "./images/crompton_steam.webp"
@@ -12,6 +13,8 @@ import Navbar from './Navbar.js';
 import './Heater.css'
 
 function Steam_iron() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id:1,name: 'Usha Dry Iron (Aurora)', img: crompton_jmg, price: 2400, details: "2 years Warranty,5 star ratings,AutoCut Thermostat,Temperature Bottom Lights,Nickel Alloy Heating plate,800 W", quantity: 1 },
         { id:2,name: 'Crompton Dry Iron (Brio)', img: crompton_grinder, price: 2100, details: "5 years Warranty,5 star ratings,AutoCut Thermostat,Light Weight,Nickel Alloy Heating plate,650 W", quantity: 1 },
@@ -78,7 +81,7 @@ function Steam_iron() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({ userEmail,name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -100,7 +103,7 @@ function Steam_iron() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

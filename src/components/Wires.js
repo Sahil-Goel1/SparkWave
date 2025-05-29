@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import reo_wire from "./images/reo_wire.jpg";
 import rr_200 from "./images/rr_200.webp";
 import havells_200 from "./images/havells_200.webp";
@@ -13,6 +14,8 @@ import Navbar from './Navbar.js';
 import './Led_batten.css';
 
 function Wires() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id: 1, name: 'Havells Reo Copper Wire 0.75MM', img: reo_wire, price: 170, details: "Length 90 metres ,Fireproof,ISI trademark,Pure copper", quantity: 1 },
         { id: 2, name: 'Havells Reo Copper Wire 1.0MM', img: reo_wire, price: 250, details: "Length 90 metres ,Fireproof,ISI trademark,Pure copper", quantity: 1 },
@@ -110,7 +113,7 @@ function Wires() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({userEmail, name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -132,7 +135,7 @@ function Wires() {
 
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} />
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail} />
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

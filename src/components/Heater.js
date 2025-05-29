@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import usha_2rod from "./images/usha_2rod.jpg";
 import usha_3rod from "./images/usha_3rod.jpg";
 import usha_blower from "./images/usha_blower.webp";
@@ -11,6 +12,8 @@ import './Heater.css';
 import Navbar from './Navbar.js';
 
 function Heater() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         {id:1, name: 'Usha Quartz Room Heater', img: usha_2rod, price: 80, details: "2 years warranty,Toll free service,800 Watt,2 Quartz rod,Auto Accidental shutdown,AutoCut Thermostat", quantity: 1 },
         {id:2, name: 'Usha Signature Room Heater', img: usha_3rod, price: 150, details: "2 years warranty,Toll free service,1200 Watt,3 Quartz rod,Auto Accidental shutdown,AutoCut Thermostat", quantity: 1 },
@@ -75,7 +78,7 @@ function Heater() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({ userEmail,name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -97,16 +100,16 @@ function Heater() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}
                 </div>
             )}
                 {filteredProducts.map((product, index) => (
-                    <div key={product.id} className="sub_div2 d-flex position-relative">
-                        <img src={product.img} className="led_batten_image flex-shrink-0 me-3" alt={product.name} />
-                        <div className="led_batten_text_div">
+                    <div key={product.id} className="heater_div2 d-flex position-relative">
+                        <img src={product.img} className="heater_image flex-shrink-0 me-3" alt={product.name} />
+                        <div className="heater_text_div">
                             <h2 className="mt-0">{product.name}</h2>
                             <h3>{product.details}</h3>
                             <h3>Rs. {product.price} only </h3>

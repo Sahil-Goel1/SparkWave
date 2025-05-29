@@ -133,7 +133,7 @@
 /* Mobile Large (576px to 767px) */
 @media screen and (max-width: 767px) {
     .main_heading {
-        font-size: 80px;
+        font-size: 90px;
         padding-top: 100px;
     }
     
@@ -145,15 +145,25 @@
 /* Mobile Small (575px and below) */
 @media screen and (max-width: 575px) {
     .main_heading {
-        font-size: 60px;
+        font-size: 65px;
         padding-top: 80px;
+        
     }
     
     .small_heading {
         font-size: 16px;
     }
     
-    #btn1, #btn2 {
-        width: 200px;
+    #btn1 {
+        width: 180px;
+        position:relative;
+        margin-top:40px;
+        height:40px;
+    }
+
+    #btn2 {
+        width: 180px;
+        position:relative;
+        height:40px;
     }
 }

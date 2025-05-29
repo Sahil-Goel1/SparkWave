@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import crompton_jmg from "./images/arno_neo.webp";
 import crompton_grinder from "./images/rapid_jet.webp";
 import philips_jmg from "./images/rr_ardent.png"
@@ -13,6 +14,8 @@ import Navbar from './Navbar.js';
 import './Led_batten.css'
 
 function Geyser() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id:1,name: 'Crompton Water Heater(Arno Neo)', img: crompton_jmg, price: 2400, details: "5 years Warranty,5 star ratings,Copper tank Rods,Glassline body,25 litre capacity", quantity: 1 },
         { id:2,name: 'Crompton Kitchen Water Heater(Rapid Jet)', img: crompton_grinder, price: 2100, details: "5 years Warranty,5 star ratings,Copper tank Rods,3 litre capacity,Instant Hot water", quantity: 1 },
@@ -79,7 +82,7 @@ function Geyser() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({userEmail, name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -101,7 +104,7 @@ function Geyser() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

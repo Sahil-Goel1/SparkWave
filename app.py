@@ -54,7 +54,7 @@ def submit():
     
 def send_email(recipient_email):
     subject = "Welcome to Goel Electricals!"
-    body = f"Hi there,\n\nThank you for signing up with us!\nYou are just few steps away to complete your profile\n\nRegards,\nGoel ELctricals"
+    body = f"Hi there,\n\nThank you for signing up with us!\nYou are just few steps away to complete your profile\n\nRegards,\nSparkWave"
 
     # Establish connection to the SMTP server
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
@@ -142,7 +142,8 @@ def set_new_password():
     cur = mysql.connection.cursor()
      
     try:
-      cur.execute("UPDATE CUSTOMERS SET PASSWORD = %s WHERE EMAIL = %s ", (new_password,email))
+      cur.execute("UPDATE CUSTOMERS SET password = %s WHERE email = %s ", (new_password,email))
+      mysql.connection.commit()
       cur.close()
       return jsonify({'message':"New password has been set up."}),200
     except Exception as e:
@@ -209,6 +210,7 @@ def upload_image():
         return jsonify({'message': 'No file part in the request'}), 400
     
     file = request.files['file']
+    email = request.form['email']
     if file.filename == '':
         return jsonify({'message': 'No file selected for uploading'}), 400
 
@@ -221,8 +223,19 @@ def upload_image():
         conn = mysql.connection
         cursor = conn.cursor()
 
-        query = "INSERT INTO user_images (filename, image_data) VALUES (%s, %s)"
-        cursor.execute(query, (filename, file_binary))
+        # Check if the email already exists
+        cursor.execute("SELECT email FROM user_images WHERE email = %s", (email,))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            # Update the existing record
+            query = "UPDATE user_images SET filename = %s, image_data = %s WHERE email = %s"
+            cursor.execute(query, (filename, file_binary, email))
+        else:
+            # Insert new record
+            query = "INSERT INTO user_images (email, filename, image_data) VALUES (%s, %s, %s)"
+            cursor.execute(query, (email, filename, file_binary))
+
         conn.commit()
         cursor.close()
 
@@ -231,15 +244,15 @@ def upload_image():
         print(e)
         return jsonify({'message': 'Failed to upload file'}), 500
     
-@app.route('/get-first-image', methods=['GET'])
-def get_first_image():
+@app.route('/get-first-image/<email>', methods=['GET'])
+def get_first_image(email):
     try:
         # Connect to MySQL
         conn = mysql.connection
         cursor = conn.cursor()
 
         # Fetch the first image from the table (you can modify the query if needed)
-        cursor.execute("SELECT image_data FROM user_images LIMIT 1")
+        cursor.execute("SELECT image_data FROM user_images WHERE email = %s", (email,))
         result = cursor.fetchone()
         cursor.close()
 
@@ -256,6 +269,7 @@ def get_first_image():
 @app.route('/carthandler', methods=['POST'])
 def carthandler():
     data = request.json
+    email = data['userEmail']
     name = data['name']
     quantity = data['quantity']
     price = data['price']
@@ -269,16 +283,16 @@ def carthandler():
 
     cur = mysql.connection.cursor()
 
-    # Check if the product already exists in the cart
-    cur.execute("SELECT quantity FROM cart WHERE name = %s", (name,))
+    # Check if the product already exists in the user's cart
+    cur.execute("SELECT quantity FROM cart WHERE email = %s AND name = %s", (email, name))
     existing_product = cur.fetchone()
 
     if existing_product:
         new_quantity = existing_product[0] + quantity
-        cur.execute("UPDATE cart SET quantity = %s WHERE name = %s", (new_quantity, name))
+        cur.execute("UPDATE cart SET quantity = %s WHERE email = %s AND name = %s", (new_quantity, email, name))
     else:
-       
-        cur.execute("INSERT INTO cart (name, quantity, price, details) VALUES (%s, %s, %s, %s)", (name, quantity, price, details))
+        cur.execute("INSERT INTO cart (email, name, quantity, price, details) VALUES (%s, %s, %s, %s, %s)", 
+                    (email, name, quantity, price, details))
 
     mysql.connection.commit()
     cur.close()
@@ -286,12 +300,12 @@ def carthandler():
     return jsonify({'message': 'Item added to cart successfully!'}), 200
 
 
-@app.route('/cartobjects', methods=['GET'])
-def cartobjects():
+@app.route('/cartobjects/<email>', methods=['GET'])
+def cartobjects(email):
     cur = mysql.connection.cursor()
 
     # Fetch data from cart table
-    cur.execute("SELECT name, quantity, price,details FROM cart")
+    cur.execute("SELECT name, quantity, price,details FROM cart where email =%s",(email,))
     cart_data = cur.fetchall()
     cur.close()
 
@@ -301,22 +315,22 @@ def cartobjects():
     else:
         return jsonify({'message': 'No data found'}), 404
     
-@app.route('/deletefromCart',methods=['DELETE'])
-def deletefromCart():
+@app.route('/deletefromCart/<email>',methods=['DELETE'])
+def deletefromCart(email):
     cur=mysql.connection.cursor()
     data = request.json
     name = data['name']
 
-    cur.execute("delete from cart where name= %s",(name,))
+    cur.execute("delete from cart where name= %s and email =%s",(name,email))
     mysql.connection.commit()
     cur.close()
     
     return jsonify({'message': 'Item deleted from cart successfully!'}), 200
 
-@app.route('/deleteallCart',methods=['DELETE'])
-def deleteallCart():
+@app.route('/deleteallCart/<email>',methods=['DELETE'])
+def deleteallCart(email):
     cur=mysql.connection.cursor()
-    cur.execute("TRUNCATE TABLE cart")
+    cur.execute("delete from cart where email =%s",(email,))
     mysql.connection.commit()
     cur.close()
     return jsonify({'message': 'Item deleted from cart successfully!'}), 200

@@ -11,9 +11,12 @@ function New_Id() {
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
+    const [loading,setloading]=useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setMessage("");
+        setloading(true);
         
         const response = await fetch('http://localhost:5000/submit', {
             method: 'POST',
@@ -24,15 +27,18 @@ function New_Id() {
         try{
         const result = await response.json();
         if(response.status===200)
-        {setMessage("Login Successful");
+        { setloading(false);
+          setMessage("Login Successful");
           navigateToProfile(email);
         }
         else{
+            setloading(false);
             setMessage("Username or Password Already exists")
         }
     }
     catch(error){
         console.error("Error",error);
+        setloading(false);
         setMessage("An error occured,Please try again")
     }
 
@@ -44,6 +50,10 @@ function New_Id() {
             <form id="form-1" onSubmit={handleSubmit} >
                 <h1 id="big-line">NEW CUSTOMER LOGIN</h1>
                 <p>{message}</p>
+                {loading &&(
+                <div className="spinner-border text-danger" role="status">
+                 <span className="visually-hidden">Loading...</span>
+                   </div>)}
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label" id="id1">Email address</label>
                     <input type="email" className="form-control" id="Email1" aria-describedby="emailHelp" required

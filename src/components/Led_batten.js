@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import batten_20w from "./images/philips_led_batten_20w.jpg";
 import batten_25w from "./images/philips_led_batten_25w.jpg";
 import batten_36w from "./images/philips_led_batten_36w.jpg";
@@ -13,6 +14,8 @@ import Navbar from './Navbar.js';
 import './Led_batten.css';
 
 function Led_batten() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id: 1, name: 'Philips 20W LED Batten', img: batten_20w, price: 170, details: "1 year Warranty, Eye Comfort,2 star ratings,2000 lumens,4 feet length,Easy to Fit,Light Weight", quantity: 1 },
         { id: 2, name: 'Philips 25W LED Batten', img: batten_25w, price: 250, details: "1 year Warranty, Eye Comfort,2 star ratings,2500 lumens,4 feet length,Easy to Fit,Light Weight", quantity: 1 },
@@ -86,7 +89,7 @@ function Led_batten() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({ userEmail,name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -108,7 +111,7 @@ function Led_batten() {
 
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} />
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}
@@ -116,7 +119,7 @@ function Led_batten() {
             )}
             {filteredProducts.map((product, index) => (
                 <div key={product.id} className="sub_div2 d-flex position-relative">
-                    <img src={product.img} className="led_batten_image flex-shrink-0 me-3" alt={product.name} />
+                    <img src={product.img} className="led_batten_image flex-shrink-0 " alt={product.name} />
                     <div className="led_batten_text_div">
                         <h2 className="mt-0">{product.name}</h2>
                         <h3>{product.details}</h3>

@@ -6,8 +6,8 @@ function Profile_page(){
     let history = useNavigate();
     const location = useLocation();
     const userEmail = location.state?.email;  // Get email from navigation state
-    const navigateToMain = () => {
-        history('/main_page');
+    const navigateToMain = (Email) => {
+        history('/main_page',{ state: { email: Email } });
       };
 
     const [Name,setName]=useState("");
@@ -24,7 +24,7 @@ function Profile_page(){
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({userEmail, Name, Age,State,District,DOB })
         });
-        navigateToMain();
+        navigateToMain(userEmail);
     }
     return(
         <div id="profile_screen">

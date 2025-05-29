@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import altrix from "./images/altrix.webp";
 import aura from "./images/aura.webp";
 import briz_air from "./images/briz_air.webp";
@@ -14,6 +15,9 @@ import Navbar from './Navbar.js';
 import './Ceiling_fans.css';
 
 function Led_batten() {
+
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id: 1, name: 'Anchor Ceiling Fan (Altrix Star)', img: altrix, price: 170, details: "1200 MM ,2 years Warranty, 100% Copper Winding ,1 star ratings, Aluminium Blades , 420 RPM , 75 Watt,Toll Free Service", quantity: 1 },
         { id: 2, name: 'Crompton Ceiling Fan (Aura)', img: aura, price: 250, details: "1200 MM,2 years Warranty, 100% Copper Winding ,1 star ratings, Aluminium Blades , Toll Free Service , 75 Watt,380 RPM,Golden Ring with designer blades", quantity: 1 },
@@ -87,7 +91,7 @@ function Led_batten() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({ userEmail,name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -109,16 +113,16 @@ function Led_batten() {
 
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} />
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}
                 </div>
             )}
             {filteredProducts.map((product, index) => (
-                <div key={product.id} className="sub_div2 d-flex position-relative">
-                    <img src={product.img} className="led_batten_image flex-shrink-0 me-3" alt={product.name} />
-                    <div className="led_batten_text_div">
+                <div key={product.id} className="ceiling_fan_div2 d-flex position-relative">
+                    <img src={product.img} className="ceiling_fan_image flex-shrink-0 me-3" alt={product.name} />
+                    <div className="ceiling_fan_text_div">
                         <h2 className="mt-0">{product.name}</h2>
                         <h3>{product.details}</h3>
                         <h3>Rs. {product.price} only </h3>

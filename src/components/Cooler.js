@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import crompton_jmg from "./images/Ginieneo.webp";
 import crompton_grinder from "./images/Optimus.webp";
 import philips_jmg from "./images/OptimusNeo.webp"
@@ -8,6 +9,9 @@ import Navbar from './Navbar.js';
 import './Heater.css'
 
 function Cooler() {
+
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id:1,name: 'Crompton Air Cooler(Ginie Neo)', img: crompton_jmg, price: 2400, details: "2 years warranty,5 star rating,High Quality Plastic Fibre Body,Copper Fan Motor,Honeycomb Pad,10 litre capacity,AutoSwing Enabled,200 W", quantity: 1 },
         { id:2,name: 'Crompton Air Cooler(Optimus)', img: crompton_grinder, price: 2100, details: "2 years warranty,5 star rating,High Quality Plastic Fibre Body,Copper Fan Motor,Honeycomb Pad,65 litre capacity,AutoSwing Enabled,300 W", quantity: 1 },
@@ -70,7 +74,7 @@ function Cooler() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({userEmail, name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -92,7 +96,7 @@ function Cooler() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

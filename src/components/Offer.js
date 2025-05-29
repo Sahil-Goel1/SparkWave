@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import crompton_jmg from "./images/crompton.jpg";
 import crompton_grinder from "./images/crompton_grinder.jpg";
 import philips_jmg from "./images/ozone.webp"
@@ -10,7 +11,9 @@ import crompton_blender from "./images/crompton_blender.webp";
 import Navbar from './Navbar.js';
 import './Led_batten.css'
 
-function Jmg() {
+function Offer() {
+    const location=useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id:1,name: 'Crompton Juicer Mixer Grinder(Fresh Mix)', img: crompton_jmg, price: 2350, details: "2 years Warranty,5 star ratings,Powerful motor,Stainless steel blades", quantity: 2 },
         { id:2,name: 'Crompton Mixer Grinder', img: crompton_grinder, price: 2050, details: "5 years Warranty,5 star ratings,Powerful motor,Stainless steel blades", quantity: 2 },
@@ -61,7 +64,7 @@ function Jmg() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({ userEmail,name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -83,7 +86,7 @@ function Jmg() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}
@@ -109,4 +112,4 @@ function Jmg() {
     );
 }
 
-export default Jmg;
+export default Offer;

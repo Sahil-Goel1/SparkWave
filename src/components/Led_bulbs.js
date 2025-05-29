@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import bulb_9w from "./images/led_9w_philips.jpg";
 import bulb_12w from "./images/led_12w_philips.jpg";
 import bulb_14w from "./images/led_14w_philips.jpg";
@@ -21,6 +22,9 @@ import './Led_bulbs.css';
 import Navbar from './Navbar.js';
 
 function Led_bulbs() {
+
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         {id:1, name: 'Philips 9W LED Bulb', img: bulb_9w, price: 80, details: "1 year Warranty, Eye Comfort,2 stars rating and 900 lumens", quantity: 1 },
         {id:2, name: 'Philips 12W LED Bulb', img: bulb_12w, price: 150, details: "1 year Warranty, Eye Comfort,2 stars rating and 1200 lumnes", quantity: 1 },
@@ -103,7 +107,7 @@ function Led_bulbs() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details})
+                body: JSON.stringify({ userEmail,name, quantity, price, details})
             });
 
             if (response.status === 200) {
@@ -124,7 +128,7 @@ function Led_bulbs() {
     };
     return (
         <div id="led_bulb_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} />
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`sticky-top alert alert-${alertType}`} role="alert">
                     {alertMessage}

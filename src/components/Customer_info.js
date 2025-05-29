@@ -37,7 +37,7 @@ function Info() {
                     setUserData(data);
 
                     // Fetch the first image from the database
-                    const imageResponse = await fetch('http://localhost:5000/get-first-image');
+                    const imageResponse = await fetch(`http://localhost:5000/get-first-image/${userEmail}`);
                     if (imageResponse.ok) {
                         const blob = await imageResponse.blob();
                         const imageUrl = URL.createObjectURL(blob);
@@ -68,6 +68,7 @@ function Info() {
 
         const formData = new FormData();
         formData.append('file', selectedFile);
+        formData.append('email', userEmail);
 
         try {
             const response = await fetch('http://localhost:5000/upload-image', {
@@ -102,7 +103,7 @@ function Info() {
             <h3>Set Profile Image</h3>
             <div >
             <input className="form-control" type="file" id="formFile" onChange={handleFileChange}/></div>
-            <button type="button" className="btn btn-info" onClick={handleFileUpload}>Upload Image</button>
+            <button type="button" className="image_upload btn btn-info" onClick={handleFileUpload}>Upload Image</button>
         </div>
     );
 }

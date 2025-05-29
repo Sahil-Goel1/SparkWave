@@ -9,7 +9,7 @@
     
 }
 
-.ceiling_fan_button:hover{
+.heater_button:hover{
     background-color:rgb(237, 237, 9);
 }
 
@@ -56,7 +56,7 @@
     height:100%;
 }
 
-.led_batten_text_div{
+.heater_text_div{
     border-width: 1px ;
     border-style:solid;
     border-color:darkgray;
@@ -67,7 +67,7 @@
     margin-top:50px;
 }
 
-.led_batten_image{
+.heater_image{
     height:260px;
     width:270px;
     margin:50px;
@@ -76,11 +76,11 @@
     position:relative;
 }
 
-.led_batten_image:hover{
+.heater_image:hover{
     transform:scale(1.1);
 }
 
-.sub_div2 {
+.heater_div2 {
     position:relative;
     margin-left: -20px; /* Adjust the left margin as needed */
     margin-top: -40px; /* Reduce this value to decrease the gap between elements vertically */
@@ -106,5 +106,102 @@
     margin-left:5px;
     margin-top:-5px;
     border-radius:15px;
+}
 
+/* Media query for tablets */
+  @media screen and (max-width: 768px) {
+  .heater_div2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 500px; /* Reduced width for tablet view */
+  }
+
+  .heater_image {
+    width: 180px;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .heater_text_div {
+    width: 100%;
+    max-width: 450px; /* Narrower text div for tablets */
+  }
+  
+  .button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+  }
+}
+
+/* Media query for mobile phones */
+@media screen and (max-width: 480px) {
+  .heater_div2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 500px;
+    gap: 0px;
+    margin: 0 !important;   /* remove extra margin */
+    padding: 0 !important;
+    padding-bottom:10px;  /* remove extra padding */
+    
+ /* Reduced width for mobile */
+  }
+
+  .heater_image {
+    width: 300px;
+    margin-bottom: 0px;  
+    position:relative;
+    margin-top:20px;
+    margin-left:30px;
+  }
+
+  .heater_text_div {
+    max-width: 300px;
+    text-align:center;
+    margin-top: 0;
+    padding-top: 0 ;
+    position:relative;
+    margin-left:20px;
+    margin-top:20px;
+    margin-bottom:150px;
+  }
+
+  .heater_text_div h2 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+
+  .heater_text_div h3 {
+    font-size: 0.9rem;
+  }
+  
+  .heater_text_div h4 {
+    font-size: 0.85rem;
+  }
+
+  .quantity_textarea1 {
+    width: 40px;
+  }
+
+  
+  .batten_plus_button {
+    padding: 2px 8px;
+    margin: 0 15px;
+  }
+  .batten_minus_button{
+    padding:2px 8px;
+    margin: 0 5px;
+  }
+
+  .heater_button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    display: block;
+    margin:  auto; 
+    margin-top:20px; 
+  }
 }

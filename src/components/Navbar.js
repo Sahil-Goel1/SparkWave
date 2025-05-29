@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Navbar({ value, onChange, isCartBlinking ,userEmail}) {
     let history = useNavigate();
     const navigateToMycart = () => {
-        history('/My_cart');
+        history('/My_cart',{ state: { email: userEmail } });
     };
 
     const navigateToInfo = () => {
@@ -65,7 +65,7 @@ function Navbar({ value, onChange, isCartBlinking ,userEmail}) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to="/offer" className="nav-link"  style={{ color: 'white' }}>Offers</Link>
+                                <Link to="/offer" state={{ email: userEmail }} className="nav-link"  style={{ color: 'white' }}>Offers</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ color: 'white' }}>

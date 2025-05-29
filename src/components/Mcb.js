@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import indoasian_mcb from "./images/indoasian_sp.webp";
 import havells_sp from "./images/havells_sp.webp";
 import indoasian_dp from "./images/indoasian_dp.webp";
@@ -12,6 +13,8 @@ import Navbar from './Navbar.js';
 import './Led_batten.css';
 
 function Led_batten() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { id: 1, name: "IndoAsian Single Pole MCB's", img: indoasian_mcb, price: 170, details: "Fireproof,Effortless Tripping,6kA load,Single Pole", quantity: 1 },
         { id: 2, name: "Havells Single Pole MCB's", img: havells_sp, price: 250, details: "Fireproof,Effortless Tripping,6kA load,Single Pole", quantity: 1 },
@@ -84,7 +87,7 @@ function Led_batten() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({userEmail, name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -106,7 +109,7 @@ function Led_batten() {
 
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} />
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail} />
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

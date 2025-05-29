@@ -11,10 +11,6 @@ import jmg from "./images/crompton.jpg"
 import wire from './images/reo_wire.jpg'
 import all_fans from './images/all-types-of-fan.jpg'
 import led_batten_main from './images/led_batten.jpg'
-import philips_trimmer_main from './images/philips_trimmer_main.jpg'
-import kettle from './images/kettle.jpg'
-import pipes from './images/pipes.jpg'
-import switches from './images/switch.jpg'
 import geyser from './images/geyser.jpg'
 import Navbar from './Navbar.js'
 import mcb_box from './images/mcb_box.jpg'
@@ -58,7 +54,7 @@ function Main_page(){
     return(
       <div id="main_page_big_box">
         <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail} />
-   <div id="carouselExampleFade" className="carousel slide carousel-fade" >
+   <div id="carouselExampleAutoPlaying" className="carousel slide" data-bs-ride="carousel" >
     <div className="carousel-inner">
     <div className="carousel-item active" id="image_1">
       <Link to="/Ceiling_fans">
@@ -89,11 +85,11 @@ function Main_page(){
       <img src={jmg} className="d-block w-100" alt="jmg"/></Link>
     </div>
   </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
     <span className="visually-hidden">Previous</span>
   </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
     <span className="visually-hidden">Next</span>
      </button>
@@ -102,7 +98,7 @@ function Main_page(){
      <div className="product_box">
       {filteredProducts.map((product)=>(
         <figure  key={product.id} className="figure">
-        <Link to={product.link} >
+        <Link to={product.link} state={{ email: userEmail }}>
        <img src={product.img} className="figure-img img-fluid rounded" alt={product.name}/></Link>
        <figcaption className="figure-caption text-center">{product.name}</figcaption>
        </figure>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import anchor_exhaust from "./images/anchor-exhaust.jpg";
 import anchor_venti from "./images/anchor_venti.jpg";
 import crompton_exhaust from "./images/crompton_exhaust.png"
@@ -12,6 +13,8 @@ import Navbar from './Navbar.js';
 import './Led_batten.css'
 
 function Vent_wall() {
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [products, setProducts] = useState([
         { name: 'Anchor Exhaust Fans ', img: anchor_exhaust, price: 2400, details: "2 years Warranty,Sweep 900 MM,1 star ratings,Powerful Copper motor, Aluminium Body", quantity: 1 },
         { name: 'Anchor Ventilation Fans', img: anchor_venti, price: 2100, details: "2 years Warranty,Sweep 900 MM,1 star ratings,Powerful Copper motor,High fibre plastic body", quantity: 1 },
@@ -77,7 +80,7 @@ function Vent_wall() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, quantity, price, details })
+                body: JSON.stringify({userEmail, name, quantity, price, details })
             });
 
             if (response.status === 200) {
@@ -99,7 +102,7 @@ function Vent_wall() {
     
     return (
         <div id="led_batten_main_page">
-            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking}/>
+            <Navbar onChange={handleSearch} value={searchTerm} isCartBlinking={isCartBlinking} userEmail={userEmail}/>
             {alertVisible && (
                 <div className={`message alert alert-${alertType}`} role="alert">
                     {alertMessage}

@@ -21,7 +21,7 @@ function Register_page(){
                                            Our Aim Is To Provide
                                            Best To Our Customers.</pre></h2>
            
-            <button type="button" className="btn btn-primary" id="btn1" onClick={navigateToLogin} >SIGN IN  </button>
+            <button type="button" className="btn btn-primary" id="btn1" onClick={navigateToLogin} >LOG IN  </button>
             <br></br>
             <button type="button" className="btn btn-primary" id="btn2" onClick={navigateTonew}>NEW CUSTOMER </button>
             </div>

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import {useLocation} from 'react-router-dom';
 import './My_cart.css'
 import funny_monkey from "./images/funny_monkey.jpg";
 import greentick from "./images/Green-Tick.png";
 import qr from "./images/qr.jpg";
 
 function MyCart() {
+
+    const location = useLocation();
+    const userEmail = location.state?.email;
     const [cartlist, setCartlist] = useState([]);
     const [p_page,setp_page]=useState(false);
     const [p_page2,setp_page2]=useState(false);
@@ -14,7 +18,7 @@ function MyCart() {
     const [qr_page,setqr_page]=useState(false);
     
     useEffect(() => {
-        fetch('http://localhost:5000/cartobjects')
+        fetch(`http://localhost:5000/cartobjects/${userEmail}`)
             .then(response => response.json())
             .then(data => {
                 console.log('Fetched data:', data); // Debug print to check fetched data
@@ -33,7 +37,7 @@ function MyCart() {
         const name = cartlist[index].name;
 
         try {
-            const response = await fetch('http://localhost:5000/deletefromCart', {
+            const response = await fetch(`http://localhost:5000/deletefromCart/${userEmail}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name })
@@ -54,7 +58,7 @@ function MyCart() {
 
     const deleteAllCart = async() =>{
         try {
-            const response = await fetch('http://localhost:5000/deleteallCart', {
+            const response = await fetch(`http://localhost:5000/deleteallCart/${userEmail}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
     
