@@ -31,18 +31,18 @@ function Led_bulbs() {
         {id:3, name: 'Philips 14W LED Bulb', img: bulb_14w, price: 180, details: "1 year Warranty, Eye Comfort,2 stars rating and 1400 lumnes", quantity: 1 },
         {id:4, name: 'Philips 18W LED Bulb', img: bulb_18w, price: 220, details: "1 year Warranty, Eye Comfort,2 stars rating and 1800 lumens", quantity: 1 },
         {id:5, name: 'Philips 20W LED Bulb', img: bulb_20w, price: 240, details: "1 year Warranty, Eye Comfort,2 stars rating and 2000 lumens", quantity: 1 },
-        {id:5, name: 'Philips 22W LED Bulb', img: bulb_22w, price: 260, details: "1 year Warranty, Eye Comfort,2 stars rating and 2200 lumens", quantity: 1 },
-        {id:6, name: 'Philips 26W LED Bulb', img: bulb_26w, price: 300, details: "1 year Warranty, Eye Comfort,2 stars rating and 2600 lumens", quantity: 1 },
-        {id:7, name: 'Philips 30W LED Bulb', img: bulb_30w, price: 400, details: "1 year Warranty, Eye Comfort,2 stars rating and 3000 lumens", quantity: 1 },
-        {id:8, name: 'Philips 50W LED Bulb', img: bulb_50w, price: 600, details: "1 year Warranty, Eye Comfort,2 stars rating and 5000 lumens", quantity: 1 },
-        {id:9, name: 'Crompton 9W LED Bulb', img: crompton_bulb_9w, price: 70, details: "1 year Warranty, Eye Comfort,2 stars rating and 945 lumens", quantity: 1 },
-        {id:10, name: 'Crompton 12W LED Bulb', img: crompton_bulb_12w, price: 120, details: "1 year Warranty, Eye Comfort,2 stars rating and 1260 lumens", quantity: 1 },
-        {id:11, name: 'Crompton 14W LED Bulb', img: crompton_bulb_14w, price: 180, details: "1 year Warranty, Eye Comfort,2 stars rating and 1470 lumens", quantity: 1 },
-        {id:12, name: 'Crompton 18W LED Bulb', img: crompton_bulb_18w, price: 220, details: "1 year Warranty, Eye Comfort,2 stars rating and 1890 lumens", quantity: 1 },
-        {id:13, name: 'Crompton 20W LED Bulb', img: crompton_bulb_20w, price: 240, details: "1 year Warranty, Eye Comfort,2 stars rating and 2100 lumens", quantity: 1 },
-        {id:14, name: 'Crompton 23W LED Bulb', img: crompton_bulb_23w, price: 300, details: "1 year Warranty, Eye Comfort,2 stars rating and 2415 lumens", quantity: 1 },
-        {id:15, name: 'Crompton 30W LED Bulb', img: crompton_bulb_30w, price: 400, details: "1 year Warranty, Eye Comfort,2 stars rating and 3150 lumens", quantity: 1 },
-        {id:16, name: 'Crompton 50W LED Bulb', img: crompton_bulb_50w, price: 600, details: "1 year Warranty, Eye Comfort,2 stars rating and 5250 lumens", quantity: 1 }
+        {id:6, name: 'Philips 22W LED Bulb', img: bulb_22w, price: 260, details: "1 year Warranty, Eye Comfort,2 stars rating and 2200 lumens", quantity: 1 },
+        {id:7, name: 'Philips 26W LED Bulb', img: bulb_26w, price: 300, details: "1 year Warranty, Eye Comfort,2 stars rating and 2600 lumens", quantity: 1 },
+        {id:8, name: 'Philips 30W LED Bulb', img: bulb_30w, price: 400, details: "1 year Warranty, Eye Comfort,2 stars rating and 3000 lumens", quantity: 1 },
+        {id:9, name: 'Philips 50W LED Bulb', img: bulb_50w, price: 600, details: "1 year Warranty, Eye Comfort,2 stars rating and 5000 lumens", quantity: 1 },
+        {id:10, name: 'Crompton 9W LED Bulb', img: crompton_bulb_9w, price: 70, details: "1 year Warranty, Eye Comfort,2 stars rating and 945 lumens", quantity: 1 },
+        {id:11, name: 'Crompton 12W LED Bulb', img: crompton_bulb_12w, price: 120, details: "1 year Warranty, Eye Comfort,2 stars rating and 1260 lumens", quantity: 1 },
+        {id:12, name: 'Crompton 14W LED Bulb', img: crompton_bulb_14w, price: 180, details: "1 year Warranty, Eye Comfort,2 stars rating and 1470 lumens", quantity: 1 },
+        {id:13, name: 'Crompton 18W LED Bulb', img: crompton_bulb_18w, price: 220, details: "1 year Warranty, Eye Comfort,2 stars rating and 1890 lumens", quantity: 1 },
+        {id:14, name: 'Crompton 20W LED Bulb', img: crompton_bulb_20w, price: 240, details: "1 year Warranty, Eye Comfort,2 stars rating and 2100 lumens", quantity: 1 },
+        {id:15, name: 'Crompton 23W LED Bulb', img: crompton_bulb_23w, price: 300, details: "1 year Warranty, Eye Comfort,2 stars rating and 2415 lumens", quantity: 1 },
+        {id:16, name: 'Crompton 30W LED Bulb', img: crompton_bulb_30w, price: 400, details: "1 year Warranty, Eye Comfort,2 stars rating and 3150 lumens", quantity: 1 },
+        {id:17, name: 'Crompton 50W LED Bulb', img: crompton_bulb_50w, price: 600, details: "1 year Warranty, Eye Comfort,2 stars rating and 5250 lumens", quantity: 1 }
     ]);
 
     const [searchTerm, setSearchTerm] = useState('');

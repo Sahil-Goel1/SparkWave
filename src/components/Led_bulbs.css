@@ -99,3 +99,56 @@
     border-radius:10px;
 
 }
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sub_div1 {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 90px;
+  }
+
+  .led_bulb_image {
+    width: 80%;
+    height: 300px;;
+  }
+
+  .led_text_div {
+    width: 80%;
+    height: auto;
+    margin-top: -40px;
+    padding: 15px;
+    margin-left:40px;
+  }
+
+  .button_container {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .minus_button,
+  .plus_button {
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+  }
+
+  .quantity_textarea {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+
+  .led_button {
+    margin-top: 12px;
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+  }
+}
