@@ -82,7 +82,7 @@ function Led_batten() {
         setdetails([...filteredProducts][index].details);
 
         try {
-            const response = await fetch('http://localhost:5000/carthandler', {
+            const response = await fetch('https://sparkwave-backend.onrender.com/carthandler', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

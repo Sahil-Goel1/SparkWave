@@ -25,7 +25,7 @@ function Info() {
         const fetchUserData = async () => {
             try {
                 // Fetch user data first
-                const response = await fetch(`http://localhost:5000/combined-data/${userEmail}`, {
+                const response = await fetch(`https://sparkwave-backend.onrender.com/combined-data/${userEmail}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ function Info() {
                     setUserData(data);
 
                     // Fetch the first image from the database
-                    const imageResponse = await fetch(`http://localhost:5000/get-first-image/${userEmail}`);
+                    const imageResponse = await fetch(`https://sparkwave-backend.onrender.com/get-first-image/${userEmail}`);
                     if (imageResponse.ok) {
                         const blob = await imageResponse.blob();
                         const imageUrl = URL.createObjectURL(blob);
@@ -71,7 +71,7 @@ function Info() {
         formData.append('email', userEmail);
 
         try {
-            const response = await fetch('http://localhost:5000/upload-image', {
+            const response = await fetch('https://sparkwave-backend.onrender.com/upload-image', {
                 method: 'POST',
                 body: formData
             });

@@ -18,7 +18,7 @@ function MyCart() {
     const [qr_page,setqr_page]=useState(false);
     
     useEffect(() => {
-        fetch(`http://localhost:5000/cartobjects/${userEmail}`)
+        fetch(`https://sparkwave-backend.onrender.com/cartobjects/${userEmail}`)
             .then(response => response.json())
             .then(data => {
                 console.log('Fetched data:', data); // Debug print to check fetched data
@@ -37,7 +37,7 @@ function MyCart() {
         const name = cartlist[index].name;
 
         try {
-            const response = await fetch(`http://localhost:5000/deletefromCart/${userEmail}`, {
+            const response = await fetch(`https://sparkwave-backend.onrender.com/deletefromCart/${userEmail}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name })
@@ -58,7 +58,7 @@ function MyCart() {
 
     const deleteAllCart = async() =>{
         try {
-            const response = await fetch(`http://localhost:5000/deleteallCart/${userEmail}`, {
+            const response = await fetch(`https://sparkwave-backend.onrender.com/deleteallCart/${userEmail}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
     

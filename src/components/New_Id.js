@@ -18,7 +18,7 @@ function New_Id() {
         setMessage("");
         setloading(true);
         
-        const response = await fetch('http://localhost:5000/submit', {
+        const response = await fetch('https://sparkwave-backend.onrender.com/submit', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ email, password, phone })

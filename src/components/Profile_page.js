@@ -19,7 +19,7 @@ function Profile_page(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const response = await fetch('http://localhost:5000/profile', {
+        const response = await fetch('https://sparkwave-backend.onrender.com/profile', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({userEmail, Name, Age,State,District,DOB })

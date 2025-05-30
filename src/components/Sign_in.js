@@ -25,7 +25,7 @@ function Sign_in() {
         setMessage("");
 
         try {
-            const response = await fetch('http://localhost:5000/signin', {
+            const response = await fetch('https://sparkwave-backend.onrender.com/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ function Sign_in() {
         setMessage("");
         setloading(true);
         try {
-            const response = await fetch('http://localhost:5000/otp_to_email', {
+            const response = await fetch('https://sparkwave-backend.onrender.com/otp_to_email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ function Sign_in() {
           ].join("");
 
         try {
-            const response = await fetch('http://localhost:5000/otp_checker', {
+            const response = await fetch('https://sparkwave-backend.onrender.com/otp_checker', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -133,7 +133,7 @@ function Sign_in() {
         else{
 
           try {
-            const response = await fetch('http://localhost:5000/set_new_password', {
+            const response = await fetch('https://sparkwave-backend.onrender.com/set_new_password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
