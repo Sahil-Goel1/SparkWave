@@ -11,7 +11,7 @@ from mysql.connector import Error
 
 app = Flask(__name__)
 global_number=0
-CORS(app)
+CORS(app,origins=["https://sparkwave-bfvu.onrender.com"])
 
 load_dotenv()
 
