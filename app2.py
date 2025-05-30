@@ -96,7 +96,7 @@ def submit():
 
 def send_email(recipient_email):
     subject = "Welcome to Goel Electricals!"
-    body = f"Hi there,\n\nThank you for signing up with us!\nYou are just few steps away to complete your profile\n\nRegards,\nSparkWave"
+    body = f"Hi there,\n\nThank you for signing up with us!\nYou are just few steps away to complete your profile\n\nRegards,\nGoel Electricals"
 
     try:
         # Establish connection to the SMTP server

@@ -9,7 +9,7 @@ function Welcome_Page(){
       };
     return(
         <div className="box">
-            <h1 className="big_heading">SparkWave</h1>
+            <h1 className="big_heading">Goel Electricals</h1>
             <h2> Welcome To The Future Of Electricity</h2>
             <button type="button" className="btn btn-primary" onClick={navigateToPage2}>Let's Get Started  </button>
         </div>

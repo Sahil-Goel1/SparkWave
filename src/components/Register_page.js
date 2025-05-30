@@ -15,7 +15,7 @@ function Register_page(){
     return(
         <div id="main-box" >
             <div className="reg_sub_div">
-            <h1 className="main_heading">SparkWave</h1>
+            <h1 className="main_heading">Goel Electricals</h1>
             <h2 className="small_heading"><pre>One Stop Solution For All
                                            Your Electrical Needs.<br></br>
                                            Our Aim Is To Provide
