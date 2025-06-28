@@ -4,20 +4,23 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import smtplib
 import random
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 global_number=0
 CORS(app)
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'monkey_#lindo@9731'
-app.config['MYSQL_DB'] = 'customer_db'
 
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
-EMAIL_ADDRESS = 'goels5394@gmail.com'  # Replace with your Gmail address
-EMAIL_PASSWORD = 'ocmkhcpwvmpoofpd'
+app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
+app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
+app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
+app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 
+SMTP_SERVER = os.getenv('SMTP_SERVER')
+SMTP_PORT = int(os.getenv('SMTP_PORT'))
+EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 mysql = MySQL(app)
 
 @app.route('/submit', methods=['POST'])

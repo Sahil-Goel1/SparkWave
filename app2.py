@@ -23,10 +23,10 @@ DB_CONFIG = {
     'port': os.getenv('DB_PORT', 3306)
 }
 
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
-EMAIL_ADDRESS = 'goels5394@gmail.com'  # Replace with your Gmail address
-EMAIL_PASSWORD = 'ocmkhcpwvmpoofpd'
+SMTP_SERVER = os.getenv('SMTP_SERVER')
+SMTP_PORT = int(os.getenv('SMTP_PORT'))
+EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
+EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
 mysql = MySQL(app)
 
